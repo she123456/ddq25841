@@ -1,10 +1,151 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
+		<meta charset="UTF-8">
+		<title>表格的增删</title>
 	</head>
+
+	<style>
+		
+		#table1 {
+			border-radius: 16px;
+			background-color:#FFE4C4;
+			
+		}
+		
+		#button {
+			background-color: #FFE4C4;
+			border-radius: 16px;
+			width: 70px;
+			height: 30px;
+		}
+	</style>
+
 	<body>
+		姓名:<input type="text" id="name" name="name"> 性别：
+		<input type="radio" name="sex" value="男" id="sex1"  value="1">男
+		<input type="radio" name="sex" value="女" id="sex" value="0">女
+<button onclick="jiayige()">增加一行<button>
+		<table border="2px" width="500px" id="table1">
+
+			<thead>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>操作</td>
+			</thead>
+			<tbody class="tbody">
+				<tr>
+					<td>1</td>
+					<td class="span"><span id="bian2">周雅岚</span></td>
+					<td>男</td>
+					<td>
+						<a href="javascript:void(0);" id="shan1">删除</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td class="span"><span id="bian">章泽宇</span></td>
+					<td>女</td>
+					<td>
+						<a href="javascript:void(0);" id="shan2">删除</a>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td class="span"><span id="bian1">熊文杰</span></td>
+					<td>女</td>
+					<td>
+						<a href="javascript:void(0);" id="shan3">删除</a>
+					</td>
+				</tr>
+
+			</tbody>
+			<script>
+				
+
+				document.getElementById("shan1").onclick = function() {
+					this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+				}
+				document.getElementById("shan2").onclick = function() {
+					this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+				}
+				document.getElementById("shan3").onclick = function() {
+					this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+				}
+
+				document.getElementById("bian2").onmouseover = function() {
+					this.style.color = "red";
+				}
+				document.getElementById("bian2").onmouseout = function() {
+					this.style.color = "darkgreen";
+				}
+				document.getElementById("bian").onmouseover = function() {
+					this.style.color = "red";
+				}
+				document.getElementById("bian").onmouseout = function() {
+					this.style.color = "darkgreen";
+				}
+				document.getElementById("bian1").onmouseover = function() {
+					this.style.color = "red";
+				}
+				document.getElementById("bian1").onmouseout = function() {
+					this.style.color = "darkgreen";
+				}
+
+				
+
+
+
+function jiayige() {
+					//实现序号的自加
+					var xinRow = document.createElement("tr");
+					var xuhao = document.createElement("td");
+					 xuhao.innerHTML = document.getElementById("table1").tBodies[0].rows.length+1;
+					xinRow.appendChild( xuhao);
+					
+					//增加第一个格子并加入插入的字（带改颜色）
+					var mzi = document.createElement("td");
+					mzi.innerHTML = document.getElementById("name").value;
+					
+					mzi.onmouseover = function() {
+						mzi.style.color = "red";
+					}
+					mzi.onmouseout = function() {
+						mzi.style.color = "darkgreen";
+					}
+					xinRow.appendChild(mzi);
+					
+					//第二个格子和判断性别
+
+					var xingbie = document.createElement("td");
+					var radio = document.getElementsByName("sex");
+					if(radio[0].checked == true)
+						 xingbie.innerHTML = document.getElementById("sex1").value;
+					else if(radio[1].checked == true)
+						 xingbie.innerHTML = document.getElementById("sex").value;
+					xinRow.appendChild( xingbie);
+					
+					
+					//第三个格子并执行操作删除
+					var shanchu= document.createElement("td");
+					a = document.createElement("a");
+					a.innerHTML = ("删除");
+					a.setAttribute("href", "javascript:void(0);");
+					shanchu.appendChild(a);
+					a.onclick = function() {
+						this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+					}
+					xinRow.appendChild(shanchu);
+					document.getElementById("table1").tBodies[0].appendChild(xinRow);
+				}
+					
+
+			</script>
+
+		</table>
 		
 	</body>
+
 </html>
