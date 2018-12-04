@@ -1,9 +1,155 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>移动端网站</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		#h1{
+			font-size:30px;
+			color:#FF7F50;
+		}
+	</style>
 	</head>
+
 	<body>
-	</body>
+		
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+   <h1  id="h1">解忧杂货铺</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+ <div data-role="navbar">
+				<ul>
+					<li>
+						 <a href="#pagetwo" data-transition="pop"style="text-decoration: none; color:#BC8F8F;float:left;margin-right: 20px;font-size: 20px;">逛喜</a>
+					</li>
+					<li>
+						 <a href="#page3" data-transition="pop"style="text-decoration: none; color:#BC8F8F;float:left;font-size: 20px;">逛忧</a>
+					</li>
+					<li>
+						<a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">登录/注册</a>
+						
+					</li>
+					
+				</ul>
+			</div>
+			<div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;">
+      <form method="post" action="demoform.php">
+        <div>
+          <h3>登录信息</h3>
+          <label for="usrnm" class="ui-hidden-accessible">用户名:</label>
+          <input type="text" name="user" id="usrnm" placeholder="用户名">
+          <label for="pswd" class="ui-hidden-accessible">密码:</label>
+          <input type="password" name="passw" id="pswd" placeholder="密码">
+          <label for="log">保存登录/注册</label>
+          <input type="checkbox" name="login" id="log" value="1" data-mini="true">
+          <input type="submit" data-inline="true" value="登录/注册">
+        </div>
+      </form>
+    </div>
+    <img src="img/6.jpg" width="100%" height="350px"/>
+				<p style="font-size:25px;color:brown;">这个行业需要的人越来越多，我想它可以成为一个趋势，
+成为一个利用互联网的时代，我相信它可以办的更好。
+只要我做到合理安排好位置和人数，控制入驻的信息可靠。
+我就应该可以做好它。</p>
+  </div>
+
+ <div data-role="footer" data-theme="b">
+  <h1></h1>
+    <div data-role="navbar">
+      <ul>
+       <li><a href="#pageone" data-icon="home" data-theme="a">会到顶部</a></li>
+        <li><a href="#pagetwo" data-icon="arrow-r">逛喜</a></li>
+        <li><a href="#page3" data-icon="arrow-r">逛忧</a></li>
+        <li><a href="#" data-icon="search" data-theme="a">搜索我们</a></li>
+      </ul>
+    </div>   
+  </div>
+</div> 
+</div> 
+
+<div data-role="page" id="pagetwo">
+  <div data-role="header">
+   <h1  id="h1">快乐驿站</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   	
+   		<a href="#pageone">返回</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#page3">下一页</a>
+   		<img src="img/p7.png" width="100%" height="200px"/>
+				<pre style="font-size:25px;color:brown;">
+					点赞&nbsp;&nbsp;&nbsp;&nbsp;评论&nbsp;&nbsp;&nbsp;&nbsp;打赏&nbsp;&nbsp;&nbsp;&nbsp;关注</pre>
+ <img src="img/p8.png" width="100%" height="200px"/>
+				<pre style="font-size:25px;color:brown;">
+					点赞&nbsp;&nbsp;&nbsp;&nbsp;评论&nbsp;&nbsp;&nbsp;&nbsp;打赏&nbsp;&nbsp;&nbsp;&nbsp;关注</pre>
+  
+  <img src="img/p9.png" width="100%" height="200px"/>
+				<pre style="font-size:25px;color:brown;">
+					点赞&nbsp;&nbsp;&nbsp;&nbsp;评论&nbsp;&nbsp;&nbsp;&nbsp;打赏&nbsp;&nbsp;&nbsp;&nbsp;关注</pre>
+  
+  
+  </div>
+
+  <div data-role="footer" data-theme="b">
+  <h1></h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#pageone" data-icon="home" data-theme="a">会到顶部</a></li>
+        <li><a href="#pagetwo" data-icon="arrow-r">逛喜</a></li>
+        <li><a href="#page3" data-icon="arrow-r">逛忧</a></li>
+        <li><a href="#" data-icon="search" data-theme="a">搜索我们</a></li>
+      </ul>
+    </div>   
+  </div>
+</div> 
+</div> 
+
+<div data-role="page" id="page3">
+  <div data-role="header">
+   <h1  id="h1">心灵创可贴</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   	
+   		<a href="#pagetwo">返回</a>
+   		
+   		<img src="img/p2.png" width="100%" height="200px"/>
+				<pre style="font-size:25px;color:brown;">
+					点赞&nbsp;&nbsp;&nbsp;&nbsp;评论&nbsp;&nbsp;&nbsp;&nbsp;打赏&nbsp;&nbsp;&nbsp;&nbsp;关注</pre>
+ <img src="img/p20.png" width="100%" height="200px"/>
+				<pre style="font-size:25px;color:brown;">
+					点赞&nbsp;&nbsp;&nbsp;&nbsp;评论&nbsp;&nbsp;&nbsp;&nbsp;打赏&nbsp;&nbsp;&nbsp;&nbsp;关注</pre>
+  
+  <img src="img/p5.png" width="100%" height="200px"/>
+				<pre style="font-size:25px;color:brown;">
+					点赞&nbsp;&nbsp;&nbsp;&nbsp;评论&nbsp;&nbsp;&nbsp;&nbsp;打赏&nbsp;&nbsp;&nbsp;&nbsp;关注</pre>
+  
+   		
+   		
+   		
+  </div>
+
+  <div data-role="footer" data-theme="b">
+  <h1></h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#pageone" data-icon="home" data-theme="a">会到顶部</a></li>
+        <li><a href="#pagetwo" data-icon="arrow-r">逛喜</a></li>
+        <li><a href="#page3" data-icon="arrow-r">逛忧</a></li>
+        <li><a href="#" data-icon="search" data-theme="a">搜索我们</a></li>
+      </ul>
+    </div>   
+  </div>
+</div> 
+</div> 
+
+</body>
 </html>
+
