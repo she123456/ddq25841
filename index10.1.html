@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>PC端网站</title>
+		<style>
+			#main {
+				width: 800px;
+				margin-bottom: 10px;
+				height: 330px;
+				overflow: hidden;
+				position: relative;
+				left: 5%;
+				border: 3px solid #000000;
+			}
+			
+			#conter {
+				width: 6400px;
+				height: 330px;
+				position: absolute;
+				z-index: 10;
+			}
+			
+			#conter div {
+				float: left;
+			}
+			
+			.c1 {
+				width: 800px;
+				height: 330px;
+				background-image: url(img/1.jpg);
+				background:cover;
+			background-size:800px 330px;
+				
+				float: left;
+			}
+			
+			.c2 {
+				width:800px;
+				height: 330px;
+				background-image: url(img/2.jpg);
+				float: left;
+				background-size:800px 330px;			}
+			
+			.c3 {
+				width: 800px;
+				height: 330px;
+				background-image: url(img/3.jpg);
+				float: left;
+				background-size:800px 330px;
+			}
+			.c4 {
+				width: 800px;
+				height: 330px;
+				background-image: url(img/4.jpg);
+				float: left;
+				background-size:800px 330px;
+			}
+			.c5 {
+				width: 800px;
+				height: 330px;
+				background-image: url(img/5.jpg);
+				float: left;
+				background-size:800px 330px;
+			}
+			.c6 {
+				width: 800px;
+				height: 330px;
+				background-image: url(img/6.jpg);
+				float: left;
+				background-size:800px 330px;
+			}
+			
+			.button {
+				
+				cursor: pointer;
+				float: left;
+				width: 50px;
+				height: 60px;
+				line-height: 50px;
+				font-size: 40px;
+				font-weight: 900;
+				position: absolute;
+				background-color: RGBA(0, 0, 0, .1);
+				color: #fff;
+				z-index: 80;
+				top: 150px;
+				text-align: center;
+			}
+			
+			.button:hover {
+				background-color: RGBA(0, 0, 0, .5);
+			}
+			
+			#buttons {
+				position: absolute;
+				height: 10px;
+				width: 100px;
+				z-index: 80;
+				bottom: 20px;
+				left: 340px;
+			}
+			
+			#buttons span {
+				cursor: pointer;
+				float: left;
+				border: 1px solid ;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: wheat;
+				
+			}
+			
+			#buttons .yuandian {
+				background: orange;
+			}
+			
+			#shangyiye {
+				left: 10px;
+			}
+			
+			#xiayiye{
+				right: 10px;
+			}
+			p{
+				font-size:39px;
+				color:red;
+				margin-top:150px;
+				margin-left: 170px;
+			}
+			
+
+		</style>
+		<link href="css/hoade.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript">
+			window.onload = function() {
+				var main= document.getElementById("main");
+				var conter = document.getElementById('conter');
+				var shangyiye = document.getElementById('shangyiye');
+				var xiayiye = document.getElementById('xiayiye');
+				var buttons = document.getElementById('buttons').getElementsByTagName('span');
+				var index = 1;
+				var bianhuan;
+
+				function showButton() {
+					for(var i = 0; i < 8; i++) {
+						if(buttons[i].className == 'yuandian') {
+							buttons[i].className = '';
+							break;
+						}
+					}
+					buttons[index - 1].className = 'yuandian';
+				}
+
+				function lod(ok) {
+					var next = parseInt(conter.style.left) + ok;
+					var time = 400;
+					var cishu = 10;
+					var speed = ok / (time / cishu );
+
+					function trans() {
+						if((speed > 0 && parseInt(conter.style.left) < next) || (speed < 0 && parseInt(conter.style.left) > next)) {
+							conter.style.left = parseInt(conter.style.left) + speed + 'px';
+							setTimeout(trans, cishu );
+						} else {
+							conter.style.left = next+ 'px';
+							if(next > -800) {
+								conter.style.left =-4800 + 'px';
+							}
+							if(next < -4800) {
+								conter.style.left = -800 + 'px';
+							}
+						}
+					}
+					trans();
+				}
+
+				function pu() {
+					 bianhuan = setInterval(function() {
+						xiayiye.onclick();
+					}, 2400)
+				}
+				pu();
+				xiayiye.onclick = function() {
+					lod(-800);
+					if(index == 6) {
+						index = 1;
+					} else {
+						index += 1;
+					}
+					showButton();
+				}
+				shangyiye.onclick = function() {
+					lod(800);
+					if(index == 1) {
+						index = 6;
+					} else {
+						index -= 1;
+					}
+					showButton();
+				}
+				for(var i = 0; i < 8; i++) {
+					buttons[i].onclick = function() {
+						var xingde = parseInt(this.getAttribute('index'));
+						var ok = -800 * (xingde - index);
+						lod(ok);
+						index = xingde;
+						showButton();
+					}
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="dadada">
+			<div id="main1">
+
+				<div class="top">
+					
+					<img src="img/未标题-1.png" style="width:350px;height:70px">
+					<div class="dlu">
+						<a href="xiao.html"style="text-decoration: none; color:darkorange">&nbsp;&nbsp;逛喜</a>
+							<a href="you.html"style="text-decoration: none; color:darkorange">&nbsp;&nbsp;逛忧</a>
+						<a href="denglu.html" class="aa">&nbsp;&nbsp;登录/注册</a>
+					</div>
+				</div>
+
+				<img src="img/刚高徒.jpg" style="width:560px; height:80px; margin-right: 20px;">
+
+				<img src="img/高徒.jpg" width="290px" height="80px">
+
+			</div>
+
+			<div id="main">
+			<div id="conter" style="left: -800px;">
+				<div class="c6"></div>
+				<div class="c1"></div>
+				<div class="c2"></div>
+				<div class="c3"></div>
+				<div class="c4"></div>
+				<div class="c5"></div>
+				<div class="c6"></div>
+				<div class="c1"></div>
+			</div>
+			<div id="buttons">
+				<span index="1" class="yuandian"></span>
+				<span index="2"></span>
+				<span index="3"></span>
+				<span index="4"></span>
+				<span index="5"></span>
+				<span index="6"></span>
+			</div>
+			<a href="javascript:;" class="button" id="shangyiye"><</a>
+			<a href="javascript:;" class="button" id="xiayiye">></a>
+		</div>
+			<div id="main3">
+				<div class="main3-zuo">
+					<img src="img/简介.jpg" style="width:230px;height:200px;display:inline-block;">
+					<img src="img/3.jpg"style="width:230px;height:200px;display:inline-block;
+						">
+				</div>
+				<div class="main3-right">
+					<pre class="hhh"><span style="color:darkorange;font-size:24px;margin-bottom: 20px;">背景</span>
+由于网络时代的发展，每个人的经历不同，会有一个百象人生，
+就为了解决这些人的孤独，郁闷，难过的事，本公司做了
+“快乐驿站”和“心灵创可贴”，两个板块，既可以解决他们的烦恼
+又可以使得一些人赚钱。一举多得，何乐而不为？</pre>
+				<pre class="hhh1">
+这个行业还是比较新鲜的，做的人少，所以竞争力少，
+但是这个行业需要的人越来越多，我想它可以成为一个趋势，
+成为一个利用互联网的时代，我相信它可以办的更好。
+只要我做到合理安排好位置和人数，控制入驻的信息可靠。
+我就应该可以做好它。
+					
+				</pre>	
+				</div>
+			</div>
+			<div id="main4">
+				<div class="main4-1">
+					<img src="img/shangye .jpg" style="width: 300px;float:left;
+			height:500px;">
+				</div>
+				<div class="main4-2">
+					<pre class="hhh2">
+						
+						
+     欢迎来到“<span class="spana">解忧杂货铺</span>”，顾名思义就是可以解除忧愁的一个小店，
+我的这个铺子和村上春树的不一样，只是名字雷同，作用雷同，方式完全不一样。
+因为在这个高速发达的网络时代，我们就要好好利用好网络这个平台，
+把自己开心和不开心的事情放在网上，让一些人来浏览，同时可以打赏，自己也可以
+加入。当然，我会给他们一些保证金，保密他们的信息。
+
+
+
+
+
+     本站有两个板块，一个叫做“<span class="spana">快乐驿站</span>”，
+这个板块的进站告知是：“<span class="spana">一个人的快乐是快乐，两个人的快乐是幸福。</span>”
+这个网站主要是给一些在生活中感到有不顺心的，无法跨越的事情想要放松一下，
+但是又不想要出去的人，他们可以进来浏览一下，这里面有许多的用户分享的
+自己的快乐事情，包括一些自己的傻逼事情，可以把自己的快乐带给别人。
+在那个页面，你可以进行打赏，为自己获得的快乐打赏，用钱买快乐。
+这些用户都是入驻在我的快乐驿站的驻户，他们在入驻的时候会给我一些入驻费，
+我会给他们安排一个位置。
+
+
+
+					
+      另一个板块叫做“<span class="spana">心灵创可贴</span>”，
+这个板块的进站告知是：“<span class="spana">往好处想，往前方看，往目标靠近，才能不枉此生。</span>”
+这个网站主要是给一些有意愿帮别人缓解压力的，入驻的人大都是口才和情商高的人，
+懂得会说话，懂得怎样开导人，相当于一个心灵净化师。在这个时代很缺乏，
+浏览这个板块的人可以和净化师一对一私聊，开导他们，然后会有费用收取。
+同样，他们在入驻的时候会给我一些入驻费，这样我给他们安排一个位置。
+				</pre>
+				</div>
+			</div>
+			<div id="main5">
+				<div class="main5-1">
+					<img src="img/工业.jpg" style="width:200px;height:200px;float:left;">
+				</div>
+				<div class="main5-2">
+					<pre class="hhh">
+     我们需要优秀的你：
+	
+由于我的大力推广，然后让越来越多的人加入进来，包括一些<span class="wer">心理咨询师，				
+业余爱好者，一些段子手，</span>等等好多从事不同种类工作的人。
+发展一些多的板块，把那些细分，让浏览者一进来就可以找到自己想要的。
+我们期待你的加入，欢迎入驻我的铺子。
+										
+			
+					</pre>
+				</div>
+			</div>
+			<div id="main6">
+				<div class="main6-1">
+					<img src="img/IMG_20181203_193451.png" style="width:130px;height:110px;float:left;">
+					
+					<h3>&nbsp;&nbsp;  &nbsp;&nbsp;<a href="#main1" style="text-decoration:none;color:darkorange">回到顶部</a></h2>
+				</div>
+				<div class="main6-2">
+					<img src="img/IMG_20181203_193503.png" style="width:130px;height:110px;float:left;">
+				<h3>&nbsp;&nbsp;  &nbsp;&nbsp;<a href="#main3" style="text-decoration:none;color:darkorange">公司背景</a></h2>
+				</div>
+				<div class="main6-3">
+					<img src="img/IMG_20181203_193514.png" style="width:130px;height:110px;float:left;">
+					<h3>&nbsp;&nbsp;  &nbsp;&nbsp;<a href="#main4" style="text-decoration:none;color:darkorange">公司介绍</a></h2>
+				</div>
+				<div class="main6-4">
+					<img src="img/IMG_20181203_193523.png" style="width:130px;height:110px;float:left;">
+					<h3>&nbsp;&nbsp;  &nbsp;&nbsp;<a href="#main5" style="text-decoration:none;color:darkorange">我们期待</a></h2>
+				</div>
+			</div>
+			<div class="main7">
+				
+				<font color="#EE4000" size="5">
+					<pre>
+     关注我们：<a href="denglu.html" style="text-decoration: none; color:#D1EEEE;">丹丹网 </a>		<font color="#FF0000">作者：邱丹丹</font>	        倾情制作 侵权必究！！！ 
+     关注支持：微信  QQ 微博 新浪 	Do things you've loved.
+     
+     
+     			<font color="red">Do what you will benefit for life. </font>
+     	<img src="img/个人.png" style="width:150px;height:90px; margin-left: 590px;margin-top: -50px;">
+     
+   			 
+					</pre>
+				</font>
+			
+			</div>
+		</div>
+	</body>
+
+</html>
